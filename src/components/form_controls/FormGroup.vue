@@ -6,7 +6,8 @@
       type="number"
       v-model.number="group.one"
       name="one"
-      v-validate:group="'required|numeric'" 
+      @input="validate"
+      v-validate="isEdit ? 'required' : ''" 
       :class="{'is-danger': errors.has('one') }" 
       placeholder="Enter one">
     </b-form-input>
@@ -16,7 +17,8 @@
       type="number"
       v-model.number="group.two"
       name="two"
-      v-validate:group="'required|numeric'" 
+      @input="validate"
+      v-validate="isEdit ? 'required' : ''" 
       :class="{'is-danger': errors.has('two') }" 
       placeholder="Enter two">
     </b-form-input>
@@ -32,14 +34,43 @@ export default {
     $validator: '$validator'
   },
 
+  computed: {
+    groupField () {
+
+    }
+  },
+
   data () {
     return {
       group: {
         one: null,
         two: null
+      },
+      isEdit: false
+    }
+  },
+
+  methods: {
+    validate () {
+      // for (let prop in this.group) {
+      //   if (this.group.hasOwnProperty(prop)) {
+      //     if (this.group[prop]) {
+      //       this.isEdit = true
+      //     }
+      //   }
+      // }
+      if (this.group.one || this.group.two) {
+         this.isEdit = true
+         console.log('validate', this.isEdit)
+      } else {
+        this.isEdit = false
       }
+      // console.log('validate', this.isEdit)
+      this.$validator.validateAll()
     }
   }
+
+
 }
 </script>
 
