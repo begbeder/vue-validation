@@ -7,6 +7,15 @@
        <p>Email: {{ form.email }}</p>
      </div>
      <FormContainer :formData="form"></FormContainer>
+
+      <br>
+      <p>  
+        <b-form-checkbox
+         v-model="form.isRequired"
+         unchecked-value="false">
+        </b-form-checkbox>
+        <span>isRequired: {{ form.isRequired }}</span>
+      </p>
   </div>
 </template>
 
@@ -26,7 +35,8 @@ export default {
         email: '',
         name: '',
         selected: null,
-        checked: []
+        checked: [],
+        isRequired: true
       },
       show: true
     }

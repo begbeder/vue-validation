@@ -31,6 +31,13 @@
       </div>
 
       <form-input :formData="formData"></form-input>
+
+      <form-local></form-local>
+      <br>
+
+      <form-group></form-group>
+      <br>
+
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
@@ -39,11 +46,16 @@
 
 <script>
 import FormInput from './FormInput'
+import FormLocal from './FormLocal'
+import FormGroup from './FormGroup'
+
 export default {
   name: 'FormContainer',
 
   components: {
-    FormInput
+    FormInput,
+    FormLocal,
+    FormGroup
   },
 
   data () {
