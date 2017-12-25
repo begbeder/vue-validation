@@ -38,6 +38,9 @@
       <form-group></form-group>
       <br>
 
+      <form-regex></form-regex>
+      <br>
+
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
@@ -48,6 +51,7 @@
 import FormInput from './FormInput'
 import FormLocal from './FormLocal'
 import FormGroup from './FormGroup'
+import FormRegex from './FormRegex'
 
 export default {
   name: 'FormContainer',
@@ -55,7 +59,8 @@ export default {
   components: {
     FormInput,
     FormLocal,
-    FormGroup
+    FormGroup,
+    FormRegex
   },
 
   data () {
